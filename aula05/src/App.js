@@ -22,15 +22,16 @@ function Agenda() {
   };
 
   const salvarContato = (evt) => {
-    evt.preventDefault();
     let contatosCopia = [...contatos];
     contatosCopia.push(novoContato);
     setContatos(contatosCopia);
+    setNovoContato({ nome: '', telefone: '' });
   };
 
   return (
     <React.Fragment>
-      <Navegacao onContatoChange={onContatoChange} onContatoSubmit={salvarContato} />
+      <Navegacao onContatoChange={onContatoChange} onContatoSubmit={salvarContato}
+                 novoContato={novoContato} />
       <Main contatos={contatos} />
     </React.Fragment>
   );
@@ -46,7 +47,8 @@ function Navegacao(props) {
             Criar contato
           </button>
           <React.Fragment>
-            <ContatoForm onContatoChange={props.onContatoChange} salvarContato={props.onContatoSubmit} />
+            <ContatoForm novoContato={props.novoContato} onContatoChange={props.onContatoChange}
+                         salvarContato={props.onContatoSubmit} />
           </React.Fragment>
       </nav>
     </header>

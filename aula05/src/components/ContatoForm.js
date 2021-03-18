@@ -4,6 +4,7 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 
 function ContatoForm(props) {
   const handleChange = (evt) => {
+    evt.preventDefault();
     let { name, value } = evt.target;
     props.onContatoChange(name, value);
   };
@@ -24,12 +25,12 @@ function ContatoForm(props) {
               <div className="mb-3">
                 <label htmlFor="contato-nome" className="col-form-label">Nome:</label>
                 <input type="text" className="form-control" id="contato-nome" name="nome"
-                       onChange={handleChange} />
+                       onChange={handleChange} value={props.novoContato.nome} />
               </div>
               <div className="mb-3">
                 <label htmlFor="contato-telefone" className="col-form-label">Telefone:</label>
                 <input type="text" className="form-control" id="contato-telefone" name="telefone"
-                       onChange={handleChange} />
+                       onChange={handleChange} value={props.novoContato.telefone} />
               </div>
             </form>
           </div>
