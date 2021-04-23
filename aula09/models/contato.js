@@ -20,4 +20,6 @@ const Contato = sequelize.define('contato', {
   }
 });
 
+sequelize.sync();
+
 module.exports = Contato;
